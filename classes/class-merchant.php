@@ -104,6 +104,17 @@ class Merchant extends Abstract_Merchant {
 	protected $account_is_connected = false;
 
 	/**
+	 * Constructor - Initialize the merchant with saved data.
+	 *
+	 * @since 5.1.9
+	 */
+	public function __construct() {
+		// Load saved data from database
+		$saved_data = $this->get_details_data();
+		$this->setup_properties( $saved_data, false );
+	}
+
+	/**
 	 * Fetches the current Merchant ID.
 	 *
 	 * @since 5.1.9
@@ -327,5 +338,29 @@ class Merchant extends Abstract_Merchant {
 		 * @param string $locale
 		 */
 		return apply_filters( 'tec_tickets_commerce_gateway_paystack_merchant_locale', $locale );
+	}
+
+	/**
+	 * Save merchant data to WordPress options.
+	 *
+	 * @since 5.1.9
+	 *
+	 * @return bool Whether the save was successful.
+	 */
+	public function save() {
+		if ( ! $this->needs_save() ) {
+			return true; // No changes to save
+		}
+
+		$data = $this->to_array();
+		$account_key = $this->get_account_key();
+		
+		$result = update_option( $account_key, $data );
+		
+		if ( $result ) {
+			$this->needs_save = false; // Reset the flag after successful save
+		}
+		
+		return $result;
 	}
 }
