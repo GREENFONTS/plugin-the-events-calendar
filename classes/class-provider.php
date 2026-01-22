@@ -13,7 +13,10 @@ class Provider extends \tad_DI52_ServiceProvider {
 		require_once( PS_TEC_PATH . '/classes/class-gateway.php' );
 		$this->container->singleton( Gateway::class );
 
+<<<<<<< HEAD
 		
+=======
+>>>>>>> 8029839847d59c93e087a75e89b2483124b39876
 		// Register Paystack as an available payment gateway
 		add_filter( 'tec_tickets_commerce_gateways', array( $this, 'register_paystack_gateway' ) );
 		add_action( 'init', array( $this, 'ensure_gateway_availability' ) );
@@ -30,7 +33,11 @@ class Provider extends \tad_DI52_ServiceProvider {
 
 		require_once( PS_TEC_PATH . '/classes/class-settings.php' );
 		$this->container->singleton( Settings::class );
+<<<<<<< HEAD
 add_action( 'tribe_settings_save_tab_paystack', '\paystack\tec\classes\Settings::update_settings', 10, 1 );
+=======
+		add_action( 'tribe_settings_save_tab_paystack', '\paystack\tec\classes\Settings::update_settings', 10, 1 );
+>>>>>>> 8029839847d59c93e087a75e89b2483124b39876
 
 		//$this->container->singleton( Refresh_Token::class );
 
@@ -84,7 +91,10 @@ add_action( 'tribe_settings_save_tab_paystack', '\paystack\tec\classes\Settings:
 		$this->container->singleton( REST::class, $hooks );
 	}
 
+<<<<<<< HEAD
 	
+=======
+>>>>>>> 8029839847d59c93e087a75e89b2483124b39876
 	/**
 	 * Register Paystack as an available gateway.
 	 */
@@ -149,7 +159,11 @@ add_action( 'tribe_settings_save_tab_paystack', '\paystack\tec\classes\Settings:
 			'XOF' => array(
 				'code'     => 'XOF',
 				'symbol'   => 'CFA',
+<<<<<<< HEAD
 				'name'     => 'West African CFA Franc',
+=======
+				'name'     => 'West African CFA franc',
+>>>>>>> 8029839847d59c93e087a75e89b2483124b39876
 				'decimals' => 0,
 			),
 			'EGP' => array(
