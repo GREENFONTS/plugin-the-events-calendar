@@ -3,7 +3,7 @@ Contributors: paystack, feedmymedia, krugazul, lightspeed, kaneahabagale
 Tags: the events calendar, paystack, payment gateway
 Requires at least: 5.8.6
 Tested up to: 6.7.2
-Stable tag: 1.0.7
+Stable tag: 1.1.1
 Requires PHP: 8.0 and higher
 License: GPL3
 License URI: https://www.gnu.org/licenses/gpl-3.0.html
